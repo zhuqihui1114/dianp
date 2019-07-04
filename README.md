@@ -1,72 +1,133 @@
-## npm 
 
 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 技术栈
 
-## Available Scripts
+- react
+- react-router V4.0
+- redux 
+- ES6/7
+- axios/fetch
+- flexible+flex
 
-In the project directory, you can run:
+# 安装
+```
+# 安装
+yarn install
+# 开发
+yarn start
+# mock server
+yarn mock
+```
 
-### `npm start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+# 弹出
+不知道怎样配置create-react-app，还是eject修改配置吧
+```
+yarn eject
+```
 
-### `npm test`
+# 编译后资源引用路径修改
+```
+// config/path.js
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+function getServedPath(appPackageJson) {
+  const publicUrl = getPublicUrl(appPackageJson);
+  const servedUrl =
+-    envPublicUrl || (publicUrl ? url.parse(publicUrl).pathname : '/');
++    envPublicUrl || (publicUrl ? url.parse(publicUrl).pathname : './');
+  return ensureSlash(servedUrl, true);
+}
+```
+# 添加代理
+package.json里添加
+```
+  "proxy": {
+    "/api": {
+      "target": "http://localhost:4000",
+      "secure": false
+    }
+  }
+```
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# 布局
+布局采用手淘的flexible.js
+### px转rem
+```
+# 安装postcss-adaptive
+yarn add postcss-adaptive --dev
+```
+### 配置postcss
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+```
+// config\webpack.config.dev.js 和 config\webpack.config.prod.js
++ const adaptive = require('postcss-adaptive')
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+plugins: () => [
+    require('postcss-flexbugs-fixes'),
+    autoprefixer({
+      browsers: [
+        '>1%',
+        'last 4 versions',
+        'Firefox ESR',
+        'not ie < 9', // React doesn't support IE8 anyway
+      ],
+      flexbox: 'no-2009',
+    }),
++   adaptive({ remUnit: 75,autoRem:true })
+  ],
+```
+默认设计稿为750，默认dpr为2，自动转换rem ，具体查看[API](https://www.npmjs.com/package/postcss-adaptive)
 
-### `npm run eject`
+# 修改alias
+```
+// config\webpack.config.dev.js 和 config\webpack.config.prod.js
+resolve: {
+    ...
+    alias: {
+      '@': resolve('src'),
+      'components': resolve('src/components'),
+      'constants': resolve('src/constants'),
+      'actions': resolve('src/redux/actions'),
+      // Support React Native Web
+      // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
+      'react-native': 'react-native-web',
+    },
+}
+```
+# 定位
+定位采用腾讯地图，因为人家支持HTTPS，chrome和ios最新版不支持http
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+需要在html中引用，然后修改webpack.config.dev.js和webpack.config.prod.js
+```
+module.exports = {
+  ...
+  externals:{
+    'qq':'qq'
+  },
+  ...
+}
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+// 引用
+import qq from 'qq'
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+# notes
++ 2017-09-15 添加团购详情组件
++ 2017-09-13 添加点评头条HeadLine组件
++ 2017-09-08 
+    - 这段时间栽跟头了受伤了。。。继续写。。。
+    - 首页“点评头条”组件增加过渡效果，采用react-transition-group（安装时要注意，本代码采用@1.x版本，yarn add react-transition-group@1.x）
+    - 城市组件增加定位组件，采用腾讯地图接口，因为chrome和IOS新版本都禁止在http下定位，只有腾讯地图支持https
+    - 增加更多城市组件，点击首字母，跳转到相应列表
+    - 列表过长，每一项改为最多显示20个城市，点击更多按钮，显示完整列表
+    - 重新整理目录结构
+    - 按需加载组件
++ 2017-08-27
+    - 修复loadMore组件bug，销毁组件时，注销scroll事件写错了，导致重复注册scroll事件
+    - 修复Likes组件bug,从其它页面切回Home组件时，会去加载第一页列表，导致store中状态改变，重复加载列表，这里修改加载条件，当列表为空才去加载
+    - 每次进入Home组件，Ad组件都会重新请求列表，同上修改加载条件，列表为空采取加载
+    - 更改样式，课程中的设计稿是旧版的，现按官网最新样式做
+    
