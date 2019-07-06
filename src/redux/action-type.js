@@ -1,0 +1,7 @@
+export const USER_SET_CITY = 'USER_SET_CITY'
+export const AD = 'AD'
+export const RB = 'RB'
+export const DISCOUNT = 'DISCOUNT'
+export const REDUCE = 'REDUCE'
+export const LIKES = 'LIKES'
+export const HEADLINE = 'HEADLINE'

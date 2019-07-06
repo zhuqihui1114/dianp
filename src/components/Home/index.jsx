@@ -1,24 +1,23 @@
 import React, { Component } from 'react'
-import './style.scss'
+import HomeHeader from './HomeHeader'
+import Category from './Category'
 
 class Home extends Component {
+    constructor(props) {
+        super(props)
+    }
+
+    componentDidMount () {
+        console.log('componentDidMount')
+        const homeInfo = this.props.getHomeInfo()
+    }
+
     render() {
         return (
-            <div className="home-header">
-                <div className="home-header-left">
-                    <div className="city-name" >
-                        <span>{this.props.cityName}<i className="icon-angle-down"></i></span>
-                    </div>
-                </div>
-
-                <div className="home-header-center">
-                    <i className="icon-search"></i>
-                    <input type="text" placeholder="输入商户名、地点"/>
-                </div>
-
-                <div className="home-header-right">
-                    <a href="/#/">用户中心</a>
-                </div>
+            <div>
+                {this.props.cityName}
+                <HomeHeader></HomeHeader>
+                <Category />
             </div>
         )
     }
