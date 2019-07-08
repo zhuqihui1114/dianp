@@ -3,13 +3,13 @@ import HomeHeader from './HomeHeader'
 import Category from './Category'
 
 class Home extends Component {
-    constructor(props) {
-        super(props)
-    }
+    // constructor(props) {
+    //     super(props)
+    // }
 
     componentDidMount () {
         console.log('componentDidMount')
-        const homeInfo = this.props.getHomeInfo()
+        this.props.getHomeInfo()
     }
 
     render() {

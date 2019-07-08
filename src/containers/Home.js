@@ -6,11 +6,17 @@ const mapStateToProps = (state) => ({
     cityName: state.reducerCity
 })
 
-const mapDispatchToProps = (dispatch) => ({
-    getHomeInfo: () => dispatch(getHomeInfo()),
-})
+// const mapDispatchToProps = (dispatch) => ({
+//     getHomeInfo: () => dispatch(getHomeInfo()),
+// })
+//
+// export default connect(
+//     mapStateToProps,
+//     mapDispatchToProps
+// )(Home)
 
+// 等价于上面的方式
 export default connect(
     mapStateToProps,
-    mapDispatchToProps
+    { getHomeInfo }
 )(Home)
