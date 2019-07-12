@@ -1,6 +1,7 @@
 //包含n个reducer函数的模块
 import { USER_SET_CITY, HEADLINE, AD, RB, DISCOUNT, REDUCE, LIKES } from "./action-type";
 import {combineReducers} from 'redux'
+import reducerLoading from './reducers/isLoading'
 
 function reducerCity(state='北京',action){ //形参默认值
     console.log('reducerCity------' + action.type)
@@ -72,6 +73,8 @@ const reducerLikes = (state = [], action) => {
     }
 }
 
+
+
 export const finalReducer = combineReducers({
     reducerCity,
     reducerAd,
@@ -79,5 +82,6 @@ export const finalReducer = combineReducers({
     reducerRb,
     reducerDiscount,
     reducerReduce,
-    reducerLikes
+    reducerLikes,
+    reducerLoading
 })

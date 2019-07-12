@@ -5,3 +5,7 @@ export const DISCOUNT = 'DISCOUNT'
 export const REDUCE = 'REDUCE'
 export const LIKES = 'LIKES'
 export const HEADLINE = 'HEADLINE'
+
+export const REQUEST_HOME_INFO = 'REQUEST_HOME_INFO'
+export const RECEIVE_HOME_INFO = 'RECEIVE_HOME_INFO'
+export const REQUEST_HOME_INFO_FAILURE = 'REQUEST_HOME_INFO_FAILURE'

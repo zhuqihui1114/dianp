@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import HomeHeader from './HomeHeader'
 import Category from './Category'
+import Loading from '../Loading'
 
 class Home extends Component {
     // constructor(props) {
@@ -15,9 +16,11 @@ class Home extends Component {
     render() {
         return (
             <div>
-                {this.props.cityName}
-                <HomeHeader></HomeHeader>
+                <HomeHeader cityName={this.props.cityName}></HomeHeader>
                 <Category />
+                {
+                    this.props.loading ? <Loading></Loading> : 'abc'
+                }
             </div>
         )
     }

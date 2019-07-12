@@ -1,42 +1,57 @@
-import { USER_SET_CITY, HEADLINE, AD, RB, DISCOUNT, REDUCE, LIKES } from "./action-type";
+import * as actionTyps from "./action-type";
 import axios from 'axios'
 
 //包含所有的action creator
 export const actionCity = (data) => ({
-    type: USER_SET_CITY,
+    type: actionTyps.USER_SET_CITY,
     data
 })
 export const actionHeadLine = (data) => ({
-    type: HEADLINE,
+    type: actionTyps.HEADLINE,
     data
 })
 export const actionAd = (data) => ({
-    type: AD,
+    type: actionTyps.AD,
     data
 })
 export const actionRb = (data) => ({
-    type: RB,
+    type: actionTyps.RB,
     data
 })
 export const actionDiscount = (data) => ({
-    type: DISCOUNT,
+    type: actionTyps.DISCOUNT,
     data
 })
 export const actionReduce = (data) => ({
-    type: REDUCE,
+    type: actionTyps.REDUCE,
     data
 })
 export const actionLikes = (data) => ({
-    type: LIKES,
+    type: actionTyps.LIKES,
     data
+})
+
+// loading
+const requestHomeInfo = () => ({
+    type: actionTyps.REQUEST_HOME_INFO,
+})
+
+const receiveHomeInfo = () => ({
+    type: actionTyps.RECEIVE_HOME_INFO
+})
+
+const requestHomeInfoFailure = () => ({
+    type: actionTyps.REQUEST_HOME_INFO_FAILURE
 })
 
 export const getHomeInfo = () => (
     async dispatch => {
         const res = await axios(`/assets/json/homeInfo.json`)
+        dispatch(requestHomeInfo())
         setTimeout(() => {
             if (res.data.code === 200) {
                 const modules = analyse(res.data.data.moduleInfoList)
+                dispatch(receiveHomeInfo())
                 dispatch(actionCity('wuhan'))
                 dispatch(actionHeadLine(modules['headline']))
                 dispatch(actionAd(modules['xyhzq']))
@@ -44,6 +59,8 @@ export const getHomeInfo = () => (
                 dispatch(actionDiscount(modules['czth']))
                 dispatch(actionReduce(modules['ttlj']))
                 dispatch(actionLikes(modules['cnxh']))
+            } else {
+                dispatch(requestHomeInfoFailure())
             }
         }, 2000)
     }
