@@ -4,7 +4,7 @@ import {combineReducers} from 'redux'
 import reducerLoading from './reducers/isLoading'
 
 function reducerCity(state='北京',action){ //形参默认值
-    console.log('reducerCity------' + action.type)
+    // console.log('reducerCity------' + action.type)
     switch(action.type){
         case USER_SET_CITY:
             return action.data
@@ -14,7 +14,7 @@ function reducerCity(state='北京',action){ //形参默认值
 }
 
 const reducerHeadline = (state = [], action) => {
-    console.log('reducerHeadline------' + action.type)
+    // console.log('reducerHeadline------' + action.type)
     switch (action.type) {
         case HEADLINE:
             return action.data.moduleData.data.list
@@ -24,7 +24,7 @@ const reducerHeadline = (state = [], action) => {
 }
 
 const reducerAd = (state = [], action) => {
-    console.log('reducerAd------' + action.type)
+    // console.log('reducerAd------' + action.type)
     switch (action.type) {
         case AD:
             return action.data.moduleData.data.list
@@ -34,7 +34,7 @@ const reducerAd = (state = [], action) => {
 }
 
 const reducerRb = (state = [], action) => {
-    console.log('reducerRb------' + action.type)
+    // console.log('reducerRb------' + action.type)
     switch (action.type) {
         case RB:
             return action.data.moduleData.data.list
@@ -44,7 +44,7 @@ const reducerRb = (state = [], action) => {
 }
 
 const reducerDiscount = (state = [], action) => {
-    console.log('reducerDiscount------' + action.type)
+    // console.log('reducerDiscount------' + action.type)
     switch (action.type) {
         case DISCOUNT:
             return action.data.moduleData.data.preferenceValueHuiVos
@@ -54,7 +54,7 @@ const reducerDiscount = (state = [], action) => {
 }
 
 const reducerReduce = (state = [], action) => {
-    console.log('reducerReduce------' + action.type)
+    // console.log('reducerReduce------' + action.type)
     switch (action.type) {
         case REDUCE:
             return action.data.moduleData.data.dayHuiVos
@@ -64,7 +64,7 @@ const reducerReduce = (state = [], action) => {
 }
 
 const reducerLikes = (state = [], action) => {
-    console.log('reducerLikes------' + action.type)
+    // console.log('reducerLikes------' + action.type)
     switch (action.type) {
         case LIKES:
             return action.data.moduleData.data.guessYouVoList

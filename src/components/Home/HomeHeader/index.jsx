@@ -5,12 +5,6 @@ import axios from 'axios'
 class HomeHeader extends Component {
     constructor(props) {
         super(props)
-        this.getList()
-    }
-
-    async getList() {
-        const res = await axios(`/assets/json/headline.json`)
-        console.log(res.data.headlines)
     }
 
     render() {

@@ -2,14 +2,14 @@ import React, { Component } from 'react'
 import HomeHeader from './HomeHeader'
 import Category from './Category'
 import Loading from '../Loading'
+import HomeHeadLine from './HomeHeadLine'
 
 class Home extends Component {
-    // constructor(props) {
-    //     super(props)
-    // }
+    constructor(props) {
+        super(props)
+    }
 
     componentDidMount () {
-        console.log('componentDidMount')
         this.props.getHomeInfo()
     }
 
@@ -19,7 +19,8 @@ class Home extends Component {
                 <HomeHeader cityName={this.props.cityName}></HomeHeader>
                 <Category />
                 {
-                    this.props.loading ? <Loading></Loading> : 'abc'
+                    this.props.loading ? <Loading></Loading>
+                        : <HomeHeadLine list={this.props.headline}></HomeHeadLine>
                 }
             </div>
         )

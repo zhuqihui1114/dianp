@@ -1,11 +1,12 @@
 import {connect} from 'react-redux'
 import {getHomeInfo} from '../redux/action'
 import Home from '../components/Home/index'
-import reducerLoading from "../redux/reducers/isLoading";
 
 const mapStateToProps = (state) => ({
     cityName: state.reducerCity,
-    loading: state.reducerLoading
+    loading: state.reducerLoading,
+    headline: state.reducerHeadline,
+    likelist: state.reducerLikes
 })
 
 // const mapDispatchToProps = (dispatch) => ({
