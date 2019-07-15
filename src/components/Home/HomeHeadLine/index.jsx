@@ -2,11 +2,18 @@ import React, {Component} from 'react'
 import {CSSTransitionGroup} from 'react-transition-group'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import HeadLineItem from './HeadLineItem/index'
+import PropTypes from 'prop-types'
 
 import './style.scss'
 
 
 class HomeHeadLine extends Component {
+  //声明属性
+  static propTypes = {
+    list:PropTypes.array.isRequired,
+  }
+
+
   constructor(props) {
     super(props)
     this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this)
@@ -19,13 +26,6 @@ class HomeHeadLine extends Component {
 
   componentDidMount() {
     console.log('HomeHeadLine componentDidMount')
-    const len = this.props.list.length
-    this.timer = setInterval(() => {
-      this.setState({
-        index: (this.state.index + 1) % len,
-        isShow: !this.state.isShow
-      })
-    }, 4000)
   }
 
   componentWillUnmount() {
@@ -35,7 +35,21 @@ class HomeHeadLine extends Component {
 
   render() {
     const list = this.props.list
-    console.log('ddddddddddddddddddddddddddddddddddddddddddddddddd' + list)
+    let showItem = {}
+    clearInterval(this.timer)
+    if (list.length > 0) {
+      this.timer = setInterval(() => {
+        console.log(this.state.index)
+        console.log(this.state.isShow)
+        this.setState({
+          index: (this.state.index + 1) % list.length,
+          isShow: !this.state.isShow
+        })
+      }, 4000)
+
+      showItem = list[this.state.index]
+    }
+
     return (
       <div className="home-head-line">
         <span className="title"></span>
@@ -46,7 +60,7 @@ class HomeHeadLine extends Component {
             transitionLeaveTimeout={1000}>
             {
               this.state.isShow ?
-                <HeadLineItem item={list[0]}/> : null
+                <HeadLineItem item={showItem}/> : null
             }
           </CSSTransitionGroup>
           <CSSTransitionGroup
@@ -55,7 +69,7 @@ class HomeHeadLine extends Component {
             transitionLeaveTimeout={1000}>
             {
               this.state.isShow === false ?
-                <HeadLineItem item={list[0]}/> : null
+                <HeadLineItem item={showItem}/> : null
             }
           </CSSTransitionGroup>
 

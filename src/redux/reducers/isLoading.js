@@ -1,6 +1,6 @@
 import { REQUEST_HOME_INFO, RECEIVE_HOME_INFO } from "../action-type";
 
-const isLoading = (isLoading = false, action) => {
+const isLoading = (isLoading = true, action) => {
   switch (action.type) {
     case REQUEST_HOME_INFO:
       return isLoading = true
