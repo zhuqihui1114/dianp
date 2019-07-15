@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import ReactSwipe from 'react-swipe'
 
 import './style.css'
 
 class Category extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this)
     this.state = {
@@ -13,7 +13,13 @@ class Category extends Component {
     }
   }
 
-  render () {
+  componentDidMount() {
+  }
+
+  componentWillUnmount() {
+  }
+
+  render() {
     const options = {
       auto: 1000,
       callback: (index) => {
@@ -70,9 +76,9 @@ class Category extends Component {
           </div>
         </ReactSwipe>
         <div className="carousel-index">
-          <span className={this.state.index === 0 ? 'active': ''}></span>
-          <span className={this.state.index === 1 ? 'active': ''}></span>
-          <span className={this.state.index === 2 ? 'active': ''}></span>
+          <span className={this.state.index === 0 ? 'active' : ''}></span>
+          <span className={this.state.index === 1 ? 'active' : ''}></span>
+          <span className={this.state.index === 2 ? 'active' : ''}></span>
         </div>
       </div>
     )
