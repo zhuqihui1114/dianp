@@ -3,10 +3,12 @@ import {getHomeInfo} from '../redux/action'
 import Home from '../components/Home/index'
 
 const mapStateToProps = (state) => ({
-    cityName: state.reducerCity,
-    loading: state.reducerLoading,
-    headline: state.reducerHeadline,
-    likelist: state.reducerLikes
+  cityName: state.reducerCity,
+  loading: state.reducerLoading,
+  headline: state.reducerHeadline,
+  likelist: state.reducerLikes,
+  rblist: state.reducerRb,
+  adlist: state.reducerAd
 })
 
 // const mapDispatchToProps = (dispatch) => ({
@@ -20,6 +22,6 @@ const mapStateToProps = (state) => ({
 
 // 等价于上面的方式
 export default connect(
-    mapStateToProps,
-    { getHomeInfo }
+  mapStateToProps,
+  {getHomeInfo}
 )(Home)

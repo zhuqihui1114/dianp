@@ -39,8 +39,6 @@ class HomeHeadLine extends Component {
     clearInterval(this.timer)
     if (list.length > 0) {
       this.timer = setInterval(() => {
-        console.log(this.state.index)
-        console.log(this.state.isShow)
         this.setState({
           index: (this.state.index + 1) % list.length,
           isShow: !this.state.isShow

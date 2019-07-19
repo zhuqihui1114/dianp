@@ -1,8 +1,10 @@
 import React, {Component} from 'react'
+import HomeBanner from './HomeBanner'
 import HomeHeader from './HomeHeader'
 import Category from './Category'
 import Loading from '../Loading'
 import HomeHeadLine from './HomeHeadLine'
+import HomeAd from './HomeAd'
 
 class Home extends Component {
   constructor(props) {
@@ -29,6 +31,9 @@ class Home extends Component {
             : (
               <div>
                 <HomeHeadLine list={this.props.headline}></HomeHeadLine>
+                <HomeBanner></HomeBanner>
+                <HomeAd list={this.props.rblist} className='home-rb'></HomeAd>
+                <HomeAd list={this.props.adlist} className='home-ad'></HomeAd>
               </div>
             )
         }
