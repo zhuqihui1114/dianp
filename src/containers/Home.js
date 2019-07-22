@@ -8,7 +8,8 @@ const mapStateToProps = (state) => ({
   headline: state.reducerHeadline,
   likelist: state.reducerLikes,
   rblist: state.reducerRb,
-  adlist: state.reducerAd
+  adlist: state.reducerAd,
+  discount: state.reducerDiscount
 })
 
 // const mapDispatchToProps = (dispatch) => ({

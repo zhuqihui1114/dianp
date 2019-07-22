@@ -4,6 +4,7 @@ import HomeHeader from './HomeHeader'
 import Category from './Category'
 import Loading from '../Loading'
 import HomeHeadLine from './HomeHeadLine'
+import HomeDiscount from './HomeDiscount'
 import HomeAd from './HomeAd'
 
 class Home extends Component {
@@ -34,6 +35,7 @@ class Home extends Component {
                 <HomeBanner></HomeBanner>
                 <HomeAd list={this.props.rblist} className='home-rb'></HomeAd>
                 <HomeAd list={this.props.adlist} className='home-ad'></HomeAd>
+                <HomeDiscount list={this.props.discount} />
               </div>
             )
         }
