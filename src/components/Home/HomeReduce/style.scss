@@ -1,4 +1,4 @@
-.home-discount {
+.home-reduce {
   background-color: #ffffff;
   margin-bottom: 20px;
   .title {
@@ -11,7 +11,7 @@
       height: 80px;
       background: url(../../../assets/images/a41a9b3b0c7b20af96d3cacbfd8692c5.png) no-repeat;
       background-size: 400px auto;
-      background-position: 20px -52px;
+      background-position: 20px -120px;
     }
     .more {
       font-size: 24px;
@@ -54,11 +54,16 @@
           font-style: normal;
         }
       }
-      .mark-price {
+      .tag {
+        position: relative;
+        top: -6px;
+        display: inline-block;
         margin-left: 10px;
-        color: #999999;
+        border: 1px solid #ff6735;
+        border-radius: 8px;
+        color: #ff6735;
+        padding: 2px 4px;
         font-size: 24px;
-        text-decoration: line-through;
       }
     }
   }

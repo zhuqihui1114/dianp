@@ -9,7 +9,8 @@ const mapStateToProps = (state) => ({
   likelist: state.reducerLikes,
   rblist: state.reducerRb,
   adlist: state.reducerAd,
-  discount: state.reducerDiscount
+  discount: state.reducerDiscount,
+  reducelist: state.reducerReduce
 })
 
 // const mapDispatchToProps = (dispatch) => ({
