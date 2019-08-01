@@ -31,7 +31,7 @@ class HomeReduce extends Component {
         <div className='content'>
           {
             this.props.list.map((item, index) => (
-              <ReduceItem item={item}></ReduceItem>
+              <ReduceItem item={item} key={index}></ReduceItem>
             ))
           }
         </div>

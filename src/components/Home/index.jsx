@@ -7,6 +7,7 @@ import HomeHeadLine from './HomeHeadLine'
 import HomeDiscount from './HomeDiscount'
 import HomeReduce from './HomeReduce'
 import HomeAd from './HomeAd'
+import Likes from './Likes'
 
 class Home extends Component {
   constructor(props) {
@@ -38,6 +39,7 @@ class Home extends Component {
                 <HomeAd list={this.props.adlist} className='home-ad'></HomeAd>
                 <HomeDiscount list={this.props.discount} />
                 <HomeReduce list={this.props.reducelist} />
+                <Likes list={this.props.likelist}></Likes>
               </div>
             )
         }

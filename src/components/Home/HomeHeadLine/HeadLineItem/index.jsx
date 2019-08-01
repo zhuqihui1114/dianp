@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 import PropTypes from "prop-types";
 
 class HeadLineItem extends Component {

@@ -29,7 +29,7 @@ class HomeDiscount extends Component {
         <div className='content'>
           {
             this.props.list.map((item, index) => (
-              <DiscountItem item={item}></DiscountItem>
+              <DiscountItem item={item} key={index}></DiscountItem>
             ))
           }
         </div>
