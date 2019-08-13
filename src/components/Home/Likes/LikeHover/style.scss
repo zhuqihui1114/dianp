@@ -1,0 +1,69 @@
+.likes-hover {
+  position: fixed;
+  bottom: 15px;
+  left: 15px;
+  width: 720px;
+  height: 100px;
+  background-color: #333;
+  opacity: 0.9;
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  img {
+    width: 80px;
+    height: 80px;
+  }
+  .title {
+    margin-left: 14px;
+    width: 536px;
+    height: 100%;
+    h4 {
+      margin-top: 2px;
+      height: 32px;
+      line-height: 32px;
+      font-weight: normal;
+      font-size: 26px;
+      color: #fff;
+    }
+    h5 {
+      span {
+        color: #b5b5b5;
+        font-size: 24px;
+      }
+      .likes-icon {
+        position: relative;
+        top: 6px;
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+        background: url(../../../../assets/images/a41a9b3b0c7b20af96d3cacbfd8692c5.png) no-repeat;
+        background-size: 240px;
+        background-position: -2px -358px;
+      }
+    }
+  }
+  .likes-hover-arrow {
+    position: relative;
+    width: 54px;
+    height: 54px;
+    border-radius: 10px;
+    border: 1px solid #555;
+    &::before, &::after {
+      content: " ";
+      display: block;
+      position: absolute;
+      right: 15px;
+      bottom: 26px;
+      width: 18px;
+      height: 18px;
+      border: 2px solid #777;
+      transform: rotate(45deg);
+      border-left: none;
+      border-top: none;
+    }
+    &::after {
+      bottom: 14px;
+    }
+  }
+}

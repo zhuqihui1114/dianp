@@ -39,7 +39,9 @@ class Home extends Component {
                 <HomeAd list={this.props.adlist} className='home-ad'></HomeAd>
                 <HomeDiscount list={this.props.discount} />
                 <HomeReduce list={this.props.reducelist} />
-                <Likes list={this.props.likelist}></Likes>
+                <Likes list={this.props.likelist.data}
+                       isShowLikesHover={this.props.likelist.isShowLikesHover}
+                       hideLikesHover={this.props.hideLikesHover}/>
               </div>
             )
         }

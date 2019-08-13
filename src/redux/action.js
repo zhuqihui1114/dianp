@@ -74,3 +74,7 @@ const analyse = (moduleInfoList) => {
         }
     }, {})
 }
+
+export const hideLikesHover = () => ({
+  type: actionTyps.HIDE_LIKES_HOVER
+})
