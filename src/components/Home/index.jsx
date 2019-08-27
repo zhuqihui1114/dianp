@@ -13,6 +13,7 @@ import LoadMore from '../LoadMore'
 class Home extends Component {
   constructor(props) {
     super(props)
+    this.loadMoreHandle = this.loadMoreHandle.bind(this)
     console.log('Home create')
   }
 
@@ -26,7 +27,8 @@ class Home extends Component {
   }
 
   loadMoreHandle () {
-    console.log('loadMoreHandle')
+    const likelist = this.props.likelist
+    this.props.getNewLikeList(likelist.page)
   }
 
   render() {

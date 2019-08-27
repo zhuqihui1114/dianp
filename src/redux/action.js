@@ -78,3 +78,26 @@ const analyse = (moduleInfoList) => {
 export const hideLikesHover = () => ({
   type: actionTyps.HIDE_LIKES_HOVER
 })
+
+const requestLikes = (page) => ({
+  type: actionTyps.REQUEST_LIKES,
+  page
+})
+
+const receiveLikes = (data) => ({
+  type: actionTyps.RECEIVE_LIKES,
+  data
+})
+
+export const getNewLikeList = (page) => (
+  async dispatch => {
+    dispatch(requestLikes(page))
+    try {
+      const res = await axios(`/assets/json/likes${page}.json`)
+      const modules = analyse(res.data.data.moduleInfoList)
+      setTimeout(() => dispatch(receiveLikes(modules['cnxh'])), 200);
+    } catch (e) {
+
+    }
+  }
+)

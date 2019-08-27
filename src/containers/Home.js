@@ -1,5 +1,5 @@
 import {connect} from 'react-redux'
-import {getHomeInfo, hideLikesHover} from '../redux/action'
+import {getHomeInfo, hideLikesHover, getNewLikeList} from '../redux/action'
 import Home from '../components/Home/index'
 
 const mapStateToProps = (state) => ({
@@ -25,5 +25,5 @@ const mapStateToProps = (state) => ({
 // 等价于上面的方式
 export default connect(
   mapStateToProps,
-  {getHomeInfo, hideLikesHover}
+  {getHomeInfo, hideLikesHover, getNewLikeList}
 )(Home)
