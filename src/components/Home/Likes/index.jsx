@@ -43,7 +43,7 @@ class Likes extends Component {
 
   isShowHandle () {
     let top = this.state.dom.getBoundingClientRect().top
-    console.log(top)
+    // console.log(top)
     if (top / window.dpr < window.screen.height) {
       this.props.hideLikesHover()
       this.setState({

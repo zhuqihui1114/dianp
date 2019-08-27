@@ -8,6 +8,7 @@ import HomeDiscount from './HomeDiscount'
 import HomeReduce from './HomeReduce'
 import HomeAd from './HomeAd'
 import Likes from './Likes'
+import LoadMore from '../LoadMore'
 
 class Home extends Component {
   constructor(props) {
@@ -22,6 +23,10 @@ class Home extends Component {
 
   componentWillUnmount() {
     console.log('Home componentWillUnmount')
+  }
+
+  loadMoreHandle () {
+    console.log('loadMoreHandle')
   }
 
   render() {
@@ -42,6 +47,9 @@ class Home extends Component {
                 <Likes list={this.props.likelist.data}
                        isShowLikesHover={this.props.likelist.isShowLikesHover}
                        hideLikesHover={this.props.hideLikesHover}/>
+                <LoadMore hasMore={this.props.likelist.hasMore}
+                          isLoading={this.props.likelist.isLoading}
+                          loadMoreHandle={this.loadMoreHandle}/>
               </div>
             )
         }

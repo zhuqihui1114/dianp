@@ -11,7 +11,6 @@ class LikeHover extends Component {
 
   render () {
     const item = this.props.item || {}
-    console.log('---------------' + item)
     return (
       <div className="likes-hover" onClick={this.props.onClick}>
         <img src={item.defaultPic} alt="" />
