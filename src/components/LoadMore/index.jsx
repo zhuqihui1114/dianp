@@ -42,7 +42,7 @@ class LoadMore extends Component{
 
   isLoadMoreFn () {
     const top = this.state.wrapper.getBoundingClientRect().top
-    console.log(top)
+    // console.log(top)
     const windowHeight = window.screen.height
     if (top && (top / this.state.dpr) <  windowHeight + 6) {
       this.props.loadMoreHandle()
