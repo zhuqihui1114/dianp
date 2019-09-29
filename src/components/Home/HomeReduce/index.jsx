@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
+import LazyLoad from 'react-lazy-load'
 import './style.scss'
 
 const ReduceItem = ({item}) => (
   <a href="/#/">
-    <img src={item.imageUrl} alt={item.featureTitle}/>
+    <LazyLoad>
+      <img src={item.imageUrl} alt={item.featureTitle}/>
+    </LazyLoad>
     <span className='name'>{item.shortTitle}</span>
     <p>
       <span className='price'><em>￥</em>{item.price}</span>

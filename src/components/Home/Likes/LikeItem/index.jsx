@@ -1,11 +1,14 @@
 import React from 'react'
+import LazyLoad from 'react-lazy-load'
 
 import './style.scss'
 
 const LikeItem = (props) => (
   <li className='like-list-item'>
     <div className='img-tag'>免预约</div>
-    <img src={props.defaultPic} alt={props.shopName}/>
+    <LazyLoad>
+      <img src={props.defaultPic} alt={props.shopName}/>
+    </LazyLoad>
     <div className='item-content'>
       <section className='item-content-top'>
         <span className='name'>{props.shopName}</span>

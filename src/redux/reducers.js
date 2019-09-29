@@ -1,7 +1,7 @@
 //包含n个reducer函数的模块
 import {
   USER_SET_CITY, HEADLINE, AD, RB, DISCOUNT, REDUCE, LIKES,
-  HIDE_LIKES_HOVER, RECEIVE_LIKES, GET_HEADLINE, REQUEST_LIKES
+  HIDE_LIKES_HOVER, RECEIVE_LIKES, REQUEST_LIKES
 } from "./action-type";
 import {combineReducers} from 'redux'
 import reducerLoading from './reducers/isLoading'
