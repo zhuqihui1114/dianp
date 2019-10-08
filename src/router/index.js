@@ -1,24 +1,29 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import {
-  HashRouter as Router,
+  BrowserRouter as Router,
   Route,
+  Switch
 } from 'react-router-dom'
 import asyncComponent from '../components/AsyncComponent'
 
 const AsyncHome = asyncComponent(() => import('../containers/Home'))
+const AsyncLikeDetail = asyncComponent(() => import('../components/LikeDetail'))
 
 class RouterMap extends Component {
   // constructor (props) {
   //   super(props)
   // }
 
-  componentDidMount () {
+  componentDidMount() {
   }
 
-  render () {
+  render() {
     return (
       <Router>
-          <Route exact path="/" component={AsyncHome} />
+        <Switch>
+          <Route exact path="/" component={AsyncHome}/>
+          <Route path="/likedetail/:groupId" component={AsyncLikeDetail}/>
+        </Switch>
       </Router>
     )
   }

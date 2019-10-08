@@ -1,10 +1,11 @@
 import React from 'react'
 import LazyLoad from 'react-lazy-load'
+import {withRouter } from 'react-router';
 
 import './style.scss'
 
 const LikeItem = (props) => (
-  <li className='like-list-item'>
+  <li className='like-list-item'onClick={() => handlerClick(props)}>
     <div className='img-tag'>免预约</div>
     <LazyLoad>
       <img src={props.defaultPic} alt={props.shopName}/>
@@ -28,4 +29,8 @@ const LikeItem = (props) => (
   </li>
 )
 
-export default LikeItem
+const handlerClick = function(props) {
+  props.history.push('/likedetail/23963176')
+}
+
+export default withRouter(LikeItem)
