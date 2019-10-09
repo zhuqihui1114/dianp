@@ -1,7 +1,7 @@
 //包含n个reducer函数的模块
 import {
   USER_SET_CITY, HEADLINE, AD, RB, DISCOUNT, REDUCE, LIKES,
-  HIDE_LIKES_HOVER, RECEIVE_LIKES, REQUEST_LIKES
+  HIDE_LIKES_HOVER, RECEIVE_LIKES, REQUEST_LIKES, REQUEST_HEAD_LINE, RECEIVE_HEAD_LINE
 } from "./action-type";
 import {combineReducers} from 'redux'
 import reducerLoading from './reducers/isLoading'
@@ -21,6 +21,17 @@ const reducerHeadline = (state = [], action) => {
   switch (action.type) {
     case HEADLINE:
       return action.data.moduleData.data.list
+    default:
+      return state
+  }
+}
+
+const reducerHeadLineList = (state = [], action) => {
+  switch (action.type) {
+    case REQUEST_HEAD_LINE:
+      return state
+    case RECEIVE_HEAD_LINE:
+      return action.list
     default:
       return state
   }
@@ -109,6 +120,7 @@ export const finalReducer = combineReducers({
   reducerCity,
   reducerAd,
   reducerHeadline,
+  reducerHeadLineList,
   reducerRb,
   reducerDiscount,
   reducerReduce,

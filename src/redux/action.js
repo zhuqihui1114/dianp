@@ -101,3 +101,26 @@ export const getNewLikeList = (page) => (
     }
   }
 )
+
+
+const requestHeadLine = () => ({
+  type: actionTyps.REQUEST_HEAD_LINE
+})
+
+const receiveHeadLine = (list) => ({
+  type: actionTyps.RECEIVE_HEAD_LINE,
+  list
+})
+
+export const getHeadLineList = () => (
+  async dispatch => {
+    dispatch(requestHeadLine())
+    try {
+      const res = await axios(`/assets/json/headline.json`)
+      const list = res.data.headlines
+      dispatch(receiveHeadLine(list))
+    } catch (e) {
+      console.log(e)
+    }
+  }
+)
