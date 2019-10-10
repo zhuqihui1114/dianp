@@ -117,13 +117,13 @@ const reducerLikes = (state = {
 
 
 export const finalReducer = combineReducers({
-  reducerCity,
-  reducerAd,
-  reducerHeadline,
-  reducerHeadLineList,
-  reducerRb,
-  reducerDiscount,
-  reducerReduce,
-  reducerLikes,
-  reducerLoading
+  cityName: reducerCity,
+  adlist: reducerAd,
+  headline: reducerHeadline,
+  headlineList: reducerHeadLineList,
+  rblist: reducerRb,
+  discount: reducerDiscount,
+  reducelist: reducerReduce,
+  likelist: reducerLikes,
+  loading: reducerLoading
 })

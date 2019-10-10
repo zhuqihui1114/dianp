@@ -3,14 +3,14 @@ import {getHomeInfo, hideLikesHover, getNewLikeList} from '../redux/action'
 import Home from '../components/Home/index'
 
 const mapStateToProps = (state) => ({
-  cityName: state.reducerCity,
-  loading: state.reducerLoading,
-  headline: state.reducerHeadline,
-  likelist: state.reducerLikes,
-  rblist: state.reducerRb,
-  adlist: state.reducerAd,
-  discount: state.reducerDiscount,
-  reducelist: state.reducerReduce
+  cityName: state.cityName,
+  loading: state.loading,
+  headline: state.headline,
+  likelist: state.likelist,
+  rblist: state.rblist,
+  adlist: state.adlist,
+  discount: state.discount,
+  reducelist: state.reducelist
 })
 
 // const mapDispatchToProps = (dispatch) => ({

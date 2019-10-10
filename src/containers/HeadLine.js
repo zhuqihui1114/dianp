@@ -3,7 +3,7 @@ import HeadLine from '../components/HeadLine'
 import {getHeadLineList} from '../redux/action'
 
 const mapStateToProps = (state) => ({
-  headLineList: state.reducerHeadLineList
+  headLineList: state.headlineList
 })
 
 const mapDispatchToProps = (dispatch) => ({
