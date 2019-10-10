@@ -296,6 +296,9 @@ module.exports = function(webpackEnv) {
         PnpWebpackPlugin.moduleLoader(module),
       ],
     },
+    externals:{
+      'qq':'qq'
+    },
     module: {
       strictExportPresence: true,
       rules: [

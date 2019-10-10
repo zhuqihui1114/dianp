@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { Link } from 'react-router-dom'
 import './style.scss'
 
 class HomeHeader extends Component {
@@ -11,9 +12,9 @@ class HomeHeader extends Component {
     return (
       <div className="home-header">
         <div className="home-header-left">
-          <div className="city-name">
+          <Link to="/city" className="city-name">
             <span>{this.props.cityName}<i className="icon-angle-down"></i></span>
-          </div>
+          </Link>
         </div>
 
         <div className="home-header-center">

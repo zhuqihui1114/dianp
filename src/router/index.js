@@ -9,6 +9,7 @@ import asyncComponent from '../components/AsyncComponent'
 const AsyncHome = asyncComponent(() => import('../containers/Home'))
 const AsyncLikeDetail = asyncComponent(() => import('../components/LikeDetail'))
 const AsyncHeadLine = asyncComponent(() => import('../containers/HeadLine'))
+const AsyncCity = asyncComponent(() => import('../containers/City'))
 
 class RouterMap extends Component {
   // constructor (props) {
@@ -24,6 +25,7 @@ class RouterMap extends Component {
         <Switch>
           <Route exact path="/" component={AsyncHome}/>
           <Route path="/headLine" component={AsyncHeadLine} />
+          <Route path="/city" component={AsyncCity} />
           <Route path="/likedetail/:groupId" component={AsyncLikeDetail}/>
         </Switch>
       </Router>
