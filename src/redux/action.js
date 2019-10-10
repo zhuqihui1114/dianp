@@ -62,7 +62,7 @@ export const getHomeInfo = () => (
             } else {
                 dispatch(requestHomeInfoFailure())
             }
-        }, 2000)
+        }, 1000)
     }
 )
 

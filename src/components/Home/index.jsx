@@ -18,7 +18,9 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    this.props.getHomeInfo()
+    if (this.props.headline.length === 0) {
+      this.props.getHomeInfo()
+    }
     console.log('Home componentDidMount')
   }
 
